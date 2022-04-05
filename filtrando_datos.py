@@ -94,5 +94,10 @@ def run():
         print(worker)
     print("\n")
 
+    #Creando una lista de diccionarios con una llave llamada OLD true o false si la persona es mayor de 70
+    old_people = list(map(lambda worker: worker | {"old":worker["age"] > 70}, DATA))
+    for worker in old_people:
+        print(worker)
+
 if __name__ == '__main__':
     run()
