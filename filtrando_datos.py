@@ -88,6 +88,8 @@ def run():
     
     #Lista de todos los adultos, usando filter donde el iterable es en DATA y el condicional es sobre worker
     adults = list(filter(lambda worker: worker["age"] > 18, DATA))
+    adults = list(map(lambda worker: worker["name"], adults))
+    print("Trabajadores que son mayores de 18 años")
     for worker in adults:
         print(worker)
     print("\n")
