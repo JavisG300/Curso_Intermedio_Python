@@ -84,8 +84,13 @@ def run():
     print("Trabajadores que trabajan en Platzi")
     for worker in all_platzi_devs:
         print(worker)
+    print("\n")
     
-
+    #Lista de todos los adultos, usando filter donde el iterable es en DATA y el condicional es sobre worker
+    adults = list(filter(lambda worker: worker["age"] > 18, DATA))
+    for worker in adults:
+        print(worker)
+    print("\n")
 
 if __name__ == '__main__':
     run()
