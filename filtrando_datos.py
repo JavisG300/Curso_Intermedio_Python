@@ -74,9 +74,17 @@ DATA = [
 def run():
     #Lista que ocntiene el nombre de todos los trabajadores de acuerdo a un condicional
     all_python_devs = [worker["name"] for worker in DATA if worker["language"] == "python"]
-
+    print("Trabajadores que manejan lenguaje Python")
     for worker in all_python_devs: #Llamando al resultado del list/dict comprehensions
         print(worker)
+    print("\n")
+
+    #Lista de los nombres de los trabajadores de Platzi
+    all_platzi_devs = [worker["name"] for worker in DATA if worker["organization"] == "Platzi"]
+    print("Trabajadores que trabajan en Platzi")
+    for worker in all_platzi_devs:
+        print(worker)
+    
 
 
 if __name__ == '__main__':
