@@ -28,12 +28,13 @@ def normalize():
 
 def main():
     attemp = 0
-    l=[]
     chosen_word = normalize()
     spaces = ["_"] * len(chosen_word)
     attemps = 3 * len(chosen_word)
     index = dict(enumerate(chosen_word))
+    l = []
     print("Bienvenido al juego del ahorcado: \n")
+    print("Solo debes introducir letras \n")
     print("Adivina la palabra \n")
     print("Tienes " + str(attemps) + " intentos \n")
     for space in spaces:
@@ -43,17 +44,33 @@ def main():
         letter = input("Escribe una letra ")
         letter = letter.upper()
         if letter in chosen_word:
-            os.system("clear")
-            id = chosen_word.index(letter)
-            spaces[id] = index.get(id)
-            if spaces == chosen_word:
-                print("Felicidades adivinaste la palabra")
-                break
-            print("Muy bien!, sigue intentando \n")
-            print("Te quedan " + str(attemps - attemp) + " intentos \n")
-            for space in spaces:
-                print(space, " ", end = "")
-            print('\n')
+            count = chosen_word.count(letter)
+            if count > 1:
+                for idx,value in index.items():
+                    if value == letter:
+                        l.append(idx)
+                for i in l:
+                    spaces[i] = letter
+                print("Muy bien!, sigue intentando \n")
+                print("Te quedan " + str(attemps - attemp) + " intentos \n")
+                for space in spaces:
+                    print(space, " ", end = "")
+                print('\n')
+            elif count == 1:
+                os.system("clear")
+                id = chosen_word.index(letter)
+                spaces[id] = index.get(id)
+                if spaces == chosen_word:
+                    print("Felicidades adivinaste la palabra")
+                    for space in spaces:
+                        print(space, " ", end = "")
+                    print('\n')
+                    break
+                print("Muy bien!, sigue intentando \n")
+                print("Te quedan " + str(attemps - attemp) + " intentos \n")
+                for space in spaces:
+                    print(space, " ", end = "")
+                print('\n')
 
         else:
             os.system("clear")
