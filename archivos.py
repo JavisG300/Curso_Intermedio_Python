@@ -6,11 +6,11 @@ def read(): #Funcion que lee un archivo
         print(numbers)       
 
 def write(): #Funcion que escribe un archivo
-    names = ["Javier", "Fernanda", "Luca", "Narda"]
-    with open("./archivos/names.txt", "w",encoding="utf-8") as f:
+    names = ["Javier", "Fernanda", "Luca", "Narda", "Se aman"]
+    with open("./archivos/names.txt", "w",encoding="utf-8") as f: #Para evitar sobre escribir usa "a" en lugar de "w"
         for name in names:
             f.write(name)
-            f.write("\n")
+            f.write("\n")  
 
 def run():
     write()
