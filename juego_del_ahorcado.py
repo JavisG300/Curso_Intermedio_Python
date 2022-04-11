@@ -51,12 +51,17 @@ def main():
                 break
             print("Muy bien!, sigue intentando \n")
             print("Te quedan " + str(attemps - attemp) + " intentos \n")
-            print(spaces)
+            for space in spaces:
+                print(space, " ", end = "")
+            print('\n')
+
         else:
             os.system("clear")
             print("Intenta de nuevo \n")
             print("Te quedan " + str(attemps - attemp) + " intentos \n")
-            print(spaces)
+            for space in spaces:
+                print(space, " ", end = "")   
+            print('\n')
         
         
         attemp += 1
