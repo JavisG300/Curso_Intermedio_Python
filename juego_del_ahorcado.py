@@ -46,6 +46,7 @@ def main():
         if letter in chosen_word:
             count = chosen_word.count(letter)
             if count > 1:
+                os.system("clear")
                 for idx,value in index.items():
                     if value == letter:
                         l.append(idx)
