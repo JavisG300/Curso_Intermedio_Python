@@ -28,6 +28,7 @@ def normalize():
 
 def main():
     attemp = 0
+    l=[]
     chosen_word = normalize()
     spaces = ["_"] * len(chosen_word)
     attemps = 3 * len(chosen_word)
@@ -40,17 +41,24 @@ def main():
     print("\n")    
     while attemp <= attemps:
         letter = input("Escribe una letra ")
+        letter = letter.upper()
         if letter in chosen_word:
-            id = index[letter]
-            space[id] = letter
-            print(spaces)
+            os.system("clear")
+            id = chosen_word.index(letter)
+            spaces[id] = index.get(id)
+            if spaces == chosen_word:
+                print("Felicidades adivinaste la palabra")
+                break
             print("Muy bien!, sigue intentando \n")
-            print("Te quedan " + str(attemps - attemp) + " intentos")
+            print("Te quedan " + str(attemps - attemp) + " intentos \n")
+            print(spaces)
         else:
             os.system("clear")
             print("Intenta de nuevo \n")
-            print("Te quedan " + str(attemps - attemp) + " intentos")
+            print("Te quedan " + str(attemps - attemp) + " intentos \n")
             print(spaces)
+        
+        
         attemp += 1
 
 
